@@ -1,25 +1,26 @@
-const categoriesElement = document.querySelector("#categories");
-const itemEl = categoriesElement.querySelectorAll(".item");
-console.log(itemEl.forEach((el, ind) => console.log(el, ind + 1)));
-console.log(itemEl.forEach((el) => console.log(el.textContent)));
+const ingredients = [
+  "Potatoes",
+  "Mushrooms",
+  "Garlic",
+  "Tomatos",
+  "Herbs",
+  "Condiments",
+];
 
-// Напиши скрипт который:
-// Посчитает и выведет в консоль количество категорий в ul#categories, то есть
-// элементов li.item.
-// Для каждого элемента li.item в списке ul#categories, найдет и выведет в консоль
-//  текст заголовка элемента (тега <h2>) и количество элементов в категории
-// (всех вложенных в него <li>).
-// Для выполнения этой задачи нужно использовать метод forEach() и свойства
-// навигации по DOM.
-// В результате, в консоли будут выведены такие сообщения.
+//  Напиши скрипт, который для каждого элемента массива
+// ingredients:
+// Создаст отдельный элемент <li>. Обзательно используй метод
+// document.createElement().
+// Добавит название ингредиента как его текстовое содержимое.
+// Добавит элементу класс item.
+// После чего вставит все <li> за одну операцию в список
+// ul#ingredients.
 
-// Number of categories: 3
+const element = ingredients.map((el, idx) => {
+  const liElement = document.createElement("li");
+  liElement.textContent = `Это тег ${idx + 1}`;
+  return liElement;
+});
 
-// Category: Animals
-// Elements: 4
-
-// Category: Products
-// Elements: 3
-
-// Category: Technologies
-// Elements: 5
+const el = document.querySelector("#ingredients");
+el.append(...element);
